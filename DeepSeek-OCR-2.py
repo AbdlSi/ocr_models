@@ -20,7 +20,7 @@ model = model.eval().cuda().to(torch.bfloat16)
 print(f"[DEBUG] Model loaded in {time.perf_counter() - model_start_time:.2f}s")
 
 prompt = "<image>\n<|grounding|>Convert the document to markdown. "
-image_file = r"C:\Users\asus\OneDrive\Desktop\tubitak_sample_docs"
+image_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "benchmark_mock_docs")
 output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output", "output_ocr", "deepseek_ocr_2")
 os.makedirs(output_path, exist_ok=True)
 for existing_file in os.listdir(output_path):
